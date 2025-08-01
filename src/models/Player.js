@@ -183,7 +183,7 @@ export class Player {
    */
   getCharacterImage() {
     if (!this.character) return null;
-    return `/public/${this.character}.png`;
+    return `/${this.character}.png`;
   }
 
   /**
