@@ -1,3 +1,4 @@
+import { MATCH_VICTORY_SCORE } from "../../../hooks/useGameState";
 import styles from "./styles.module.scss";
 
 export default function MatchVictoryScreen({
@@ -11,7 +12,7 @@ export default function MatchVictoryScreen({
       <div className={styles.matchWinnerAnnouncement}>
         <img
           src={
-            players.player1.score >= 5
+            players.player1.score >= MATCH_VICTORY_SCORE
               ? players.player1.getCharacterImage()
               : players.player2.getCharacterImage()
           }
@@ -19,7 +20,7 @@ export default function MatchVictoryScreen({
           className={styles.winnerImage}
         />
         <h3 className={styles.winnerName}>
-          {players.player1.score >= 5
+          {players.player1.score >= MATCH_VICTORY_SCORE
             ? players.player1.getCharacterName()
             : players.player2.getCharacterName()}{" "}
           Conquistou a Supremacia!

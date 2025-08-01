@@ -1,6 +1,6 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import { createContext, useState, useEffect } from "react";
 
-const ThemeContext = createContext();
+export const ThemeContext = createContext();
 
 /**
  * @param {React.ReactNode} children - Componentes filhos
@@ -31,14 +31,3 @@ export function ThemeProvider({ children }) {
     </ThemeContext.Provider>
   );
 }
-
-/**
- * @returns {Object} Contexto do tema
- */
-export const useTheme = () => {
-  const context = useContext(ThemeContext);
-  if (!context) {
-    throw new Error("useTheme deve ser usado dentro de ThemeProvider");
-  }
-  return context;
-};

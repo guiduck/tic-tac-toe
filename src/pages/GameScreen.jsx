@@ -110,6 +110,7 @@ export function GameScreen() {
             onCellClick={handleCellClick}
             isPlaying={isPlaying}
             isSwitchingPlayers={isSwitchingPlayers}
+            currentPlayer={currentPlayer}
           />
 
           <GameStatus

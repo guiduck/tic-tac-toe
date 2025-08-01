@@ -1,3 +1,4 @@
+import { useColorCustomization } from "../../../hooks/useColorCustomization";
 import styles from "./styles.module.scss";
 
 /**
@@ -12,7 +13,9 @@ export default function PlayerDisplay({
   isPlaying,
   position = "left",
 }) {
+  const { getCharacterColor } = useColorCustomization();
   const isActive = currentPlayer.id === player.id && isPlaying;
+  const characterType = player.character; // 'rat' ou 'octopus'
 
   const getDisplayClasses = () => {
     const classes = [styles.characterDisplay];
@@ -39,7 +42,12 @@ export default function PlayerDisplay({
 
         <div className={styles.playerIndicator}>
           {isActive && (
-            <span className={styles.activeIndicator}>🎯 Sua vez!</span>
+            <span
+              className={styles.activeIndicator}
+              style={{ "--custom-color": getCharacterColor(characterType) }}
+            >
+              🎯 Sua vez!
+            </span>
           )}
         </div>
       </div>

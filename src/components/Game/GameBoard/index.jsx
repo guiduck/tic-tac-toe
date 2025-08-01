@@ -1,4 +1,5 @@
 import { CELL_STATES } from "../../../contexts/GameContext";
+import { useColorCustomization } from "../../../hooks/useColorCustomization";
 import styles from "./styles.module.scss";
 
 /**
@@ -7,6 +8,7 @@ import styles from "./styles.module.scss";
  * @param {Function} props.onCellClick - Handler for cell clicks
  * @param {boolean} props.isPlaying - Whether the game is active
  * @param {boolean} props.isSwitchingPlayers - Whether players are switching
+ * @param {Object} props.currentPlayer - Current active player
  */
 export default function GameBoard({
   game,
@@ -14,7 +16,9 @@ export default function GameBoard({
   onCellClick,
   isPlaying,
   isSwitchingPlayers,
+  currentPlayer,
 }) {
+  const { getCharacterColor } = useColorCustomization();
   const getCellClasses = (row, col, cellValue) => {
     const classes = [styles.cell];
 
@@ -27,6 +31,25 @@ export default function GameBoard({
     }
 
     return classes.join(" ");
+  };
+
+  const getCellStyle = (row, col, cellValue) => {
+    if (selectedCell.row === row && selectedCell.col === col) {
+      let characterType;
+
+      if (cellValue) {
+        // Célula ocupada: usar cor do dono da célula
+        characterType = cellValue === CELL_STATES.RAT ? "rat" : "octopus";
+      } else if (currentPlayer) {
+        // Célula vazia mas selecionada: usar cor do jogador atual
+        characterType = currentPlayer.character;
+      }
+
+      if (characterType) {
+        return { "--custom-color": getCharacterColor(characterType) };
+      }
+    }
+    return {};
   };
 
   const getSymbolClasses = (cellValue) => {
@@ -58,6 +81,7 @@ export default function GameBoard({
           <button
             key={`${rowIndex}-${colIndex}`}
             className={getCellClasses(rowIndex, colIndex, cell)}
+            style={getCellStyle(rowIndex, colIndex, cell)}
             onClick={() => onCellClick(rowIndex, colIndex)}
             disabled={!isPlaying || cell !== null || isSwitchingPlayers}
             aria-label={`Cell ${rowIndex + 1}, ${colIndex + 1}${

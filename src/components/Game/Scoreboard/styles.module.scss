@@ -24,13 +24,31 @@
   min-width: 200px;
 
   &.player1 {
-    background: var(--rat-bg);
-    border: 2px solid var(--rat-light);
+    background: color-mix(
+      in srgb,
+      var(--custom-color, var(--rat-primary)) 10%,
+      transparent
+    );
+    border: 2px solid
+      color-mix(
+        in srgb,
+        var(--custom-color, var(--rat-primary)) 40%,
+        transparent
+      );
   }
 
   &.player2 {
-    background: var(--octopus-bg);
-    border: 2px solid var(--octopus-light);
+    background: color-mix(
+      in srgb,
+      var(--custom-color, var(--octopus-primary)) 10%,
+      transparent
+    );
+    border: 2px solid
+      color-mix(
+        in srgb,
+        var(--custom-color, var(--octopus-primary)) 40%,
+        transparent
+      );
     flex-direction: row-reverse;
   }
 }
@@ -87,7 +105,6 @@
   font-weight: 500;
 }
 
-// Responsive design
 @media (max-width: 768px) {
   .header {
     padding: var(--spacing-md);

@@ -115,7 +115,7 @@
 }
 
 .activeIndicator {
-  background: var(--info);
+  background: var(--custom-color, var(--info));
   color: white;
   padding: var(--spacing-xs) var(--spacing-md);
   border-radius: var(--radius-lg);
@@ -125,7 +125,6 @@
   box-shadow: var(--shadow-sm);
 }
 
-// Animations
 @keyframes activeGlow {
   0% {
     transform: rotate(0deg);
@@ -163,7 +162,6 @@
   }
 }
 
-// Responsive design
 @media (max-width: 1024px) {
   .playerContainer {
     min-width: 150px;

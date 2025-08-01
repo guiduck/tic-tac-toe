@@ -22,23 +22,33 @@
 
   &.ratCard {
     &:hover {
-      border-color: var(--rat-primary);
+      border-color: var(--rat-custom, var(--rat-primary));
     }
 
     &.selected {
-      border-color: var(--rat-primary);
-      box-shadow: 0 0 20px rgba(184, 125, 199, 0.3);
+      border-color: var(--rat-custom, var(--rat-primary));
+      box-shadow: 0 0 20px
+        color-mix(
+          in srgb,
+          var(--rat-custom, var(--rat-primary)) 30%,
+          transparent
+        );
     }
   }
 
   &.octopusCard {
     &:hover {
-      border-color: var(--octopus-primary);
+      border-color: var(--octopus-custom, var(--octopus-primary));
     }
 
     &.selected {
-      border-color: var(--octopus-primary);
-      box-shadow: 0 0 20px rgba(232, 91, 154, 0.3);
+      border-color: var(--octopus-custom, var(--octopus-primary));
+      box-shadow: 0 0 20px
+        color-mix(
+          in srgb,
+          var(--octopus-custom, var(--octopus-primary)) 30%,
+          transparent
+        );
     }
   }
 }
