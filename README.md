@@ -56,16 +56,26 @@ src/
 
 ## 🎨 Design System
 
-Sistema completo com cores temáticas:
+Sistema robusto com **95+ variáveis CSS** organizadas por categorias:
 
-- **Ratos**: Tons roxos (#b87dc7)
-- **Polvos**: Tons vermelhos (#e85b9a)
-- **95+ variáveis CSS** centralizadas
-- **Componentes modulares** reutilizáveis
+- **Cores temáticas**: Ratos (roxos #b87dc7) e Polvos (vermelhos #e85b9a)
+- **Paleta completa**: primárias, secundárias, neutras, estados
+- **Tipografia**: System fonts com escalas responsivas
+- **Spacing & Layout**: grid system consistente
+- **SCSS Modules** para componentização e escopo isolado
+- **Tokens centralizados** em `src/styles/variables.scss`
 
 ## 📱 Responsivo
 
 Funciona em desktop, tablet e mobile com layout adaptativo.
+
+## 🔧 CI/CD
+
+Pipeline automatizado com **GitHub Actions** (`ci.yml`):
+
+- Instalação de dependências
+- Build do projeto
+- Deploy automático
 
 ---
 
