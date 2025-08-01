@@ -1,0 +1,40 @@
+.footer {
+  background: var(--bg-cards);
+  border-top: 1px solid var(--border-default);
+  padding: var(--spacing-lg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+}
+
+.gameControls {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.shortcutsSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+
+  .quickShortcuts {
+    display: flex;
+    gap: var(--spacing-md);
+    font-size: var(--font-size-sm);
+    color: var(--text-muted);
+
+    kbd {
+      background: var(--bg-primary);
+      border: 1px solid var(--border-default);
+      border-radius: var(--radius-sm);
+      padding: 2px 4px;
+      font-size: var(--font-size-xs);
+      margin-right: var(--spacing-xs);
+    }
+  }
+}

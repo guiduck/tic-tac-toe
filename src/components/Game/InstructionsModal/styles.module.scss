@@ -1,0 +1,260 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: var(--spacing-lg);
+  animation: fadeIn 0.3s ease-out;
+}
+
+.modal {
+  background: var(--bg-cards);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-lg);
+  max-width: 600px;
+  width: 100%;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: modalSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border: 1px solid var(--border-default);
+}
+
+.modalHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border-default);
+  background: var(--bg-primary);
+}
+
+.modalTitle {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.closeButton {
+  background: none;
+  border: none;
+  font-size: var(--font-size-xl);
+  color: var(--text-secondary);
+  cursor: pointer;
+  padding: var(--spacing-xs);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-fast);
+  line-height: 1;
+
+  &:hover {
+    background: var(--btn-secondary-hover);
+    color: var(--text-primary);
+  }
+}
+
+.modalContent {
+  padding: var(--spacing-lg);
+  max-height: 60vh;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: var(--bg-primary);
+    border-radius: var(--radius-sm);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: var(--border-default);
+    border-radius: var(--radius-sm);
+
+    &:hover {
+      background: var(--text-secondary);
+    }
+  }
+}
+
+.instructionSection {
+  margin-bottom: var(--spacing-xl);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.sectionTitle {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0 0 var(--spacing-md) 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.instructionText {
+  font-size: var(--font-size-base);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.instructionList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+
+  li {
+    font-size: var(--font-size-base);
+    color: var(--text-secondary);
+    line-height: 1.6;
+    position: relative;
+    padding-left: var(--spacing-lg);
+
+    &::before {
+      content: "•";
+      color: var(--info);
+      font-weight: 600;
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+.controlsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.controlItem {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-default);
+
+  * {
+    box-sizing: content-box;
+  }
+}
+
+.key {
+  background: var(--text-primary);
+  color: var(--bg-cards);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-family: "Courier New", monospace;
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  min-width: 50px;
+  text-align: center;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border-default);
+}
+
+.modalFooter {
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--border-default);
+  background: var(--bg-primary);
+  display: flex;
+  justify-content: center;
+}
+
+// Animations
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .modalOverlay {
+    padding: var(--spacing-md);
+  }
+
+  .modal {
+    max-height: 95vh;
+  }
+
+  .modalHeader,
+  .modalContent,
+  .modalFooter {
+    padding: var(--spacing-md);
+  }
+
+  .modalTitle {
+    font-size: var(--font-size-lg);
+  }
+
+  .sectionTitle {
+    font-size: var(--font-size-base);
+  }
+
+  .controlsGrid {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-sm);
+  }
+
+  .controlItem {
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .key {
+    min-width: 40px;
+    font-size: var(--font-size-xs);
+  }
+}
+
+@media (max-width: 480px) {
+  .modalOverlay {
+    padding: var(--spacing-sm);
+  }
+
+  .modalHeader,
+  .modalContent,
+  .modalFooter {
+    padding: var(--spacing-sm);
+  }
+
+  .instructionSection {
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .instructionList li {
+    font-size: var(--font-size-sm);
+  }
+
+  .instructionText {
+    font-size: var(--font-size-sm);
+  }
+}

@@ -1,0 +1,25 @@
+@use "../styles/variables.scss";
+
+.introScreen {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--navy-blue) 0%,
+    var(--bg-primary) 50%,
+    var(--octopus-primary) 100%
+  );
+}
+
+.content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  width: 90%;
+  padding: var(--spacing-2xl);
+  text-align: center;
+}

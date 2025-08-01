@@ -1,0 +1,24 @@
+.currentPlayerIndicator {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  animation: indicatorPulse 2s ease-in-out infinite;
+
+  h2 {
+    font-size: var(--font-size-xl);
+    color: var(--text-primary);
+    font-weight: 600;
+    margin: 0;
+  }
+}
+
+@keyframes indicatorPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}

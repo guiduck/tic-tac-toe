@@ -1,0 +1,53 @@
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0.3;
+}
+
+.oceanWaves {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(180deg, transparent 0%, var(--navy-blue) 100%);
+  animation: waveMotion 4s ease-in-out infinite;
+}
+
+.landSilhouette {
+  position: absolute;
+  top: 60%;
+  left: 0;
+  width: 100%;
+  height: 40%;
+  background: linear-gradient(
+    180deg,
+    var(--rat-dark) 0%,
+    var(--text-primary) 100%
+  );
+  clip-path: polygon(
+    0% 100%,
+    100% 100%,
+    100% 60%,
+    85% 70%,
+    70% 50%,
+    50% 65%,
+    30% 45%,
+    15% 60%,
+    0% 40%
+  );
+}
+
+@keyframes waveMotion {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}

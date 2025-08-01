@@ -1,0 +1,139 @@
+.timerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.timer {
+  position: relative;
+  width: 280px;
+  height: 20px;
+  background: var(--timer-bg);
+  border: 2px solid var(--border-default);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+
+  &.warning {
+    border-color: var(--timer-warning);
+    animation: pulseWarning 1s ease-in-out infinite;
+  }
+
+  &.critical {
+    border-color: var(--timer-critical);
+    animation: pulseCritical 0.5s ease-in-out infinite;
+  }
+
+  &.switching {
+    border-color: var(--info);
+
+    .timerFill {
+      background: var(--info);
+      animation: switchingPulse 0.8s ease-in-out infinite;
+    }
+  }
+}
+
+.timerBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+}
+
+.timerFill {
+  height: 100%;
+  background: var(--timer-fill);
+  border-radius: inherit;
+  transition: all var(--transition-fast);
+
+  .timer.warning & {
+    background: var(--timer-warning);
+  }
+
+  .timer.critical & {
+    background: var(--timer-critical);
+  }
+}
+
+.timerText {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--font-size-sm);
+  font-weight: 600;
+  color: var(--text-primary);
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.8);
+  z-index: 2;
+}
+
+.currentPlayerName {
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-align: center;
+  margin: 0;
+}
+
+@keyframes pulseWarning {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 201, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 201, 0, 0.1);
+  }
+}
+
+@keyframes pulseCritical {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 112, 81, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 112, 81, 0.1);
+  }
+}
+
+@keyframes switchingPulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .timer {
+    width: 240px;
+    height: 18px;
+  }
+
+  .timerText {
+    font-size: var(--font-size-xs);
+  }
+
+  .currentPlayerName {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .timer {
+    width: 200px;
+    height: 16px;
+  }
+
+  .timerSection {
+    margin-bottom: var(--spacing-md);
+  }
+}

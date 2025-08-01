@@ -1,0 +1,137 @@
+.header {
+  width: calc(100%);
+  padding: var(--spacing-lg);
+  background: var(--bg-cards);
+  border-bottom: 1px solid var(--border-default);
+  box-shadow: var(--shadow-sm);
+}
+
+.scoreboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: var(--spacing-lg);
+}
+
+.playerScore {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-lg);
+  min-width: 200px;
+
+  &.player1 {
+    background: var(--rat-bg);
+    border: 2px solid var(--rat-light);
+  }
+
+  &.player2 {
+    background: var(--octopus-bg);
+    border: 2px solid var(--octopus-light);
+    flex-direction: row-reverse;
+  }
+}
+
+.playerInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.playerAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--border-default);
+  background: var(--bg-cards);
+}
+
+.playerName {
+  font-size: var(--font-size-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.score {
+  font-size: var(--font-size-3xl);
+  font-weight: 700;
+  color: var(--text-primary);
+  min-width: 40px;
+  text-align: center;
+}
+
+.vsIndicator {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-xs);
+}
+
+.vsText {
+  font-size: var(--font-size-xl);
+  font-weight: 700;
+  color: var(--text-secondary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  background: var(--bg-primary);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-default);
+}
+
+.gameInfo {
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .header {
+    padding: var(--spacing-md);
+  }
+
+  .scoreboard {
+    gap: var(--spacing-sm);
+  }
+
+  .playerScore {
+    min-width: 150px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+  }
+
+  .playerName {
+    font-size: var(--font-size-base);
+  }
+
+  .score {
+    font-size: var(--font-size-2xl);
+  }
+
+  .playerAvatar {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .scoreboard {
+    flex-direction: column;
+    gap: var(--spacing-md);
+  }
+
+  .playerScore {
+    width: 100%;
+    justify-content: space-between;
+
+    &.player2 {
+      flex-direction: row;
+    }
+  }
+
+  .vsIndicator {
+    order: -1;
+  }
+}

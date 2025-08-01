@@ -1,0 +1,54 @@
+.playerStatus {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-lg);
+  animation: statusAppear 1s ease-out 0.2s both;
+}
+
+.statusCard {
+  background: var(--bg-cards);
+  border: 1px solid var(--border-default);
+  border-radius: var(--radius-md);
+  padding: var(--spacing-md) var(--spacing-lg);
+  text-align: center;
+  min-width: 200px;
+  box-shadow: var(--shadow-sm);
+
+  h3 {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-sm) 0;
+  }
+}
+
+.statusIndicator {
+  padding: var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  font-weight: 500;
+
+  &.ready {
+    background-color: var(--success);
+    color: white;
+  }
+
+  &.waiting {
+    background-color: var(--warning);
+    color: var(--text-primary);
+  }
+}
+
+@keyframes statusAppear {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

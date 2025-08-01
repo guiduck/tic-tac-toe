@@ -1,0 +1,12 @@
+@use "../styles/variables.scss";
+
+.characterSelection {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+  overflow: hidden;
+  padding-bottom: 50px;
+  padding-inline: 16px;
+}

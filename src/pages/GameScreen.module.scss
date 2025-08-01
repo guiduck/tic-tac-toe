@@ -1,0 +1,44 @@
+@use "../styles/variables.scss";
+
+.gameScreen {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-primary);
+  font-family: var(--font-family);
+}
+
+.gameArea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xl);
+  flex: 1;
+  padding: var(--spacing-lg);
+}
+
+.gameBoardSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  max-width: 600px;
+}
+
+@media (max-width: 768px) {
+  .gameArea {
+    flex-direction: column;
+    gap: var(--spacing-md);
+    padding: var(--spacing-md);
+  }
+
+  .gameBoardSection {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .gameArea {
+    padding: var(--spacing-sm);
+  }
+}

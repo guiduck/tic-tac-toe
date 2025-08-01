@@ -1,0 +1,113 @@
+.characterCard {
+  background: var(--bg-cards);
+  border: 2px solid var(--border-default);
+  border-radius: var(--radius-lg);
+  padding: var(--spacing-xl);
+  width: 350px;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  &.selected {
+    border-color: var(--success);
+    box-shadow: 0 0 20px rgba(35, 160, 148, 0.3);
+    transform: translateY(-8px) scale(1.02);
+  }
+
+  &.ratCard {
+    &:hover {
+      border-color: var(--rat-primary);
+    }
+
+    &.selected {
+      border-color: var(--rat-primary);
+      box-shadow: 0 0 20px rgba(184, 125, 199, 0.3);
+    }
+  }
+
+  &.octopusCard {
+    &:hover {
+      border-color: var(--octopus-primary);
+    }
+
+    &.selected {
+      border-color: var(--octopus-primary);
+      box-shadow: 0 0 20px rgba(232, 91, 154, 0.3);
+    }
+  }
+}
+
+.characterImage {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+
+  img {
+    width: 120px;
+    height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+    transition: transform var(--transition-normal);
+  }
+
+  .characterCard:hover & img {
+    transform: scale(1.1);
+  }
+}
+
+.characterInfo {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+
+  h3 {
+    font-size: var(--font-size-2xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-md) 0;
+  }
+}
+
+.characterDescription {
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: var(--spacing-md);
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.characterTraits {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.trait {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  background: var(--bg-primary);
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-default);
+}
+
+.selectionHint {
+  position: absolute;
+  bottom: var(--spacing-md);
+  right: var(--spacing-md);
+
+  kbd {
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-default);
+    border-radius: var(--radius-sm);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    font-size: var(--font-size-sm);
+    font-weight: bold;
+    box-shadow: var(--shadow-sm);
+  }
+}

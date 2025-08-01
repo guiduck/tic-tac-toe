@@ -1,0 +1,39 @@
+.header {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: var(--spacing-2xl) var(--spacing-md) var(--spacing-lg);
+  animation: headerSlide 0.8s ease-out;
+
+  h1 {
+    font-size: var(--font-size-3xl);
+    font-weight: 700;
+    margin-bottom: var(--spacing-sm);
+    background: linear-gradient(
+      45deg,
+      var(--rat-primary),
+      var(--octopus-primary)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin: 0 0 var(--spacing-sm) 0;
+  }
+
+  p {
+    color: var(--text-secondary);
+    font-size: var(--font-size-lg);
+    margin: 0;
+  }
+}
+
+@keyframes headerSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
