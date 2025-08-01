@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useGameState } from "../hooks/useGameState";
 import { useGameOperations } from "../hooks/useGameOperations";
 import { useShortcut } from "../hooks/useShortcut";
+import { useAppNavigation } from "../routes/navigation";
 import { GAME_STATES } from "../contexts/GameContext";
 import styles from "./GameScreen.module.scss";
 import Footer from "../components/Footer";
@@ -16,6 +17,7 @@ import DialogueSystem from "../components/Game/DialogueSystem";
 export function GameScreen() {
   const [showInstructions, setShowInstructions] = useState(false);
   const [selectedCell, setSelectedCell] = useState({ row: 0, col: 0 });
+  const { navigateToIntro } = useAppNavigation();
 
   const {
     game,
@@ -55,7 +57,7 @@ export function GameScreen() {
 
   useEffect(() => {
     if (!players.player1.hasCharacter() || !players.player2.hasCharacter()) {
-      backToCharacterSelection();
+      navigateToIntro();
       return;
     }
 
@@ -80,7 +82,7 @@ export function GameScreen() {
     players.player2,
     game.isGameActive,
     game.gameState,
-    backToCharacterSelection,
+    navigateToIntro,
     startGame,
   ]);
 
