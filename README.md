@@ -36,8 +36,7 @@ Este projeto foi inspirado em um **jogo que desenvolvi anos atrás** que conquis
 
 ## Demo
 
-Acesse o jogo online:  
-🌐 **[https://deal-polvos-vs-ratos.vercel.app](https://deal-polvos-vs-ratos.vercel.app)**
+🌐 **[Acesse o jogo online](https://tic-tac-toe-nine-psi-69.vercel.app)**
 
 ## Project Structure
 
@@ -64,7 +63,7 @@ src/
 ├── pages/             # Páginas principais da aplicação
 ├── routes/            # Sistema de roteamento
 └── styles/            # Design system e variáveis CSS
-    └── variables.scss      # 95+ tokens de design centralizados
+    └── variables.scss      # tokens de design centralizados
 ```
 
 ## Features
@@ -85,7 +84,7 @@ src/
 
 #### **🎯 Classe Player Imutável**
 
-Optei por implementar os jogadores através de uma **classe Player** seguindo princípios de **gamedev**, onde entidades do jogo são representadas como objetos com métodos especializados. Porém, mantendo **imutabilidade total**:
+Optei por implementar os jogadores através de uma **classe Player** seguindo princípios de **gamedev**, onde entidades do jogo são representadas como objetos com métodos especializados. Porém, mantendo **imutabilidade total** para melhr integração com o projeto:
 
 ```javascript
 // Todas as operações retornam novas instâncias
@@ -165,7 +164,7 @@ Acesse: [http://localhost:5173](http://localhost:5173)
 ## Tech Stack
 
 - **Framework**: [React 19](https://reactjs.org/) + [Vite](https://vitejs.dev/)
-- **Language**: [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (sem TypeScript por requisito)
+- **Language**: [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) (sem TypeScript)
 - **Styling**: [SCSS Modules](https://sass-lang.com/) com design system customizado
 - **State Management**: [React Context API](https://reactjs.org/docs/context.html)
 - **Architecture**: Hooks customizados + Classes imutáveis
@@ -176,7 +175,7 @@ Acesse: [http://localhost:5173](http://localhost:5173)
 
 ### História
 
-Após conquistarem os oceanos, os polvos liberaram um vírus que extinguiu a humanidade. Os ratos evoluíram com inteligência superior. Agora essas duas espécies lutam pelo controle do planeta.
+Após conquistarem os oceanos, os polvos liberaram um vírus que erradicou a humanidade. Mas os ratos evoluíram com inteligência superior. Agora essas duas espécies lutam pelo controle do planeta.
 
 ### Mecânicas de Jogo
 
@@ -269,8 +268,6 @@ O projeto implementa todas as funcionalidades planejadas para uma experiência d
 - **WebSockets**: Implementação de multiplayer em tempo real
 - **Salas privadas**: Jogos com amigos via código de sala
 - **Ranking online**: Sistema de pontuação global
-- ~~**Menu de cores**: Sistema completo de personalização visual~~ ✅ **IMPLEMENTADO**
-- ~~**11 vitórias**: Balanceamento final do jogo~~ ✅ **IMPLEMENTADO**
 
 ### Melhorias Técnicas
 
@@ -278,11 +275,5 @@ O projeto implementa todas as funcionalidades planejadas para uma experiência d
 - **Animações**: Micro-interações com CSS animations
 - **Acessibilidade**: Screen reader e navegação completa por teclado
 - **i18n**: Internacionalização multi-idioma
-
-## License
-
-Este projeto está licenciado sob a licença MIT - veja o arquivo [LICENSE](LICENSE) para detalhes.
-
----
 
 **Pronto para jogar! Que vença o melhor na batalha épica Polvos vs Ratos!** 🎮🐙⚔️🐭
