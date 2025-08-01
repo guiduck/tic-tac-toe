@@ -28,4 +28,16 @@ export default defineConfig([
       "react-hooks/exhaustive-deps": "off",
     },
   },
+  {
+    files: ["**/*.test.{js,jsx}", "**/__tests__/**/*.{js,jsx}"],
+    languageOptions: {
+      globals: globals.jest,
+    },
+  },
+  {
+    files: ["jest.setup.js"],
+    languageOptions: {
+      globals: globals.node,
+    },
+  },
 ]);
